@@ -35,9 +35,37 @@ export class UserComponent implements OnInit {
       state: "MA"
     }
     this.hobbies = ['Write Code', 'Playing Music']
+    this.email = "dirkdunn1@gmail.com"
     this.hello ='Hello, I can be any data type.'
 
     console.log("Running ngOnInit");
+  }
+
+  // My own method that I am using for an event
+  onClick(e){
+    console.log('Event Triggered!');
+    console.log("e: ", e)
+
+    // This will also update the data binding
+    this.name="Dirk The Man!!!"
+
+  }
+
+  addHobby(hobby){
+    console.log('hobby is the DOM node of the hobby input: ', hobby)
+    // Will add to the list of hobbies real time in the browser
+    this.hobbies.unshift(hobby.value);
+    hobby.value = "";
+
+    return false;
+  }
+
+  deleteHobby(i){
+    this.hobbies.splice(i,1)
+  }
+
+  updateHobby(i){
+
   }
 
 }

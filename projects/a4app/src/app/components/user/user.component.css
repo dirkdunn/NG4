@@ -1,0 +1,8 @@
+.delete-hobby {
+  color: red;
+  cursor: pointer;
+}
+
+.delete-hobby:hover {
+  text-decoration:underline;
+}

@@ -3,4 +3,63 @@
 <ul>
   <li>Age: {{age}}</li>
   <li>Email: {{email}}</li>
+  <li>Address:
+  {{address.street}} {{address.city}} {{address.state}}</li>
 </ul>
+
+<h2>Edit User</h2>
+<form>
+  <div>
+    <label for="name">Name:</label>
+    <!-- Bind ngModel to the name property
+   [(ngModel)] binds it to something, name= sets its value
+   to that piece of data, and allows you to change it realtime.-->
+    <input type="text" [(ngModel)]="name" name="name">
+  </div>
+  <div>
+    <label for="age">Age:</label>
+    <input type="text" [(ngModel)]="age" name="age">
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="text" [(ngModel)]="email" name="email">
+  </div>
+  <div>
+    <label for="street">Street:</label>
+    <input type="text" [(ngModel)]="address.street" name="address.street">
+  </div>
+  <div>
+    <label for="city">City:</label>
+    <input type="text" [(ngModel)]="address.city" name="address.city">
+  </div>
+  <div>
+    <label for="state">State:</label>
+    <input type="text" [(ngModel)]="address.state" name="address.state">
+  </div>
+  <div>
+    <input type="submit" value="Edit">
+  </div>
+</form>
+
+<h2>Hobbies</h2>
+<form (submit)="addHobby(hobby)">
+  <div>
+    <label for="hobby">Hobby: </label>
+    <!-- Give the hobby an ID in angular, to refer to in the CB -->
+    <input type="text" #hobby/>
+  </div>
+  <div>
+    <input type="submit" value="Add hobby"/>
+  </div>
+</form>
+
+<ul>
+  <!--  Looping through an array in template -->
+  <li *ngFor="let hobby of hobbies; let i = index">
+    {{i}}: {{hobby}}
+    <span class="delete-hobby" (click)="deleteHobby(i)">delete</span>
+  </li>
+</ul>
+
+<!-- Events in Angular, the param declares the event. -->
+<button (click)="onClick()"> Click Me </button>
